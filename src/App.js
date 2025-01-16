@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [cars, setCars] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchCars = async () => {
+      try {
+        const response = await axios.get("https://dealership.naman.zip/cars");
+        setCars(response.data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchCars();
+  }, []);
+
+  if (error) return <div>Error: {error}</div>;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="title">Cars List</h1>
+      <div className="car-list">
+        {cars.map((car) => (
+          <div className="car-item" key={car.id}>
+            <img src={car.image} alt={car.id} width="200" />
+            <p>{car.make} {car.model} - ${car.price}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
