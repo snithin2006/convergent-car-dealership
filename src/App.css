@@ -3,6 +3,67 @@
   margin: 20px 0;
 }
 
+.dropdown-container {
+  margin-left: 5%;
+  margin-bottom: 1%;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown:hover {
+  background-color: #0056b3;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 120px;
+}
+
+.checkmark {
+  margin-left: auto;
+  font-size: 16px;
+  color: #28a745;
+  padding-right: 5px;
+}
+
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+
+
+
 .car-list {
   display: grid;
   grid-template-columns: repeat(4, 0.5fr);

@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import Modal from "./Modal";
 
 const App = () => {
   const [cars, setCars] = useState([]);
-  const [error, setError] = useState(null);
+  const [dropdown1, setDropdown1] = useState(false);
+  const [dropdown2, setDropdown2] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState("asc");
+  const [selectedCategory, setSelectedCategory] = useState("price");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
 
+  const fetchCars = useCallback(async () => {
+    const response = await axios.get(`https://dealership.naman.zip/cars/sort?direction=${selectedOrder}&key=${selectedCategory}`);
+    setCars(response.data);
+  }, [selectedOrder, selectedCategory]);
+  
   useEffect(() => {
-    const fetchCars = async () => {
-      try {
-        const response = await axios.get("https://dealership.naman.zip/cars/sort?direction=asc&key=price");
-        setCars(response.data);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-
     fetchCars();
-  }, []);
+  }, [fetchCars]);
 
   const openModal = async (car) => {
     console.log(car.id);
@@ -35,12 +34,142 @@ const App = () => {
     setIsModalOpen(false);
   };
 
+  const toggleDropdown1 = () => {
+    setDropdown1(!dropdown1);
+  }
 
-  if (error) return <div>Error: {error}</div>;
+  const toggleDropdown2 = () => {
+    setDropdown2(!dropdown2);
+  }
+
+  const handleSelectOrder = async (item) => {
+    setSelectedOrder(item);
+    setDropdown1(!dropdown1)
+  };
+
+  const handleSelectCategory = async (item) => {
+    setSelectedCategory(item);
+    setDropdown2(!dropdown2)
+  };
+
 
   return (
     <div>
       <h1 className="title">Cars Dealership</h1>
+
+      <div className="dropdown-container">
+        <button className="dropdown" onClick={toggleDropdown1}>
+          Order
+        </button>
+        {dropdown1 && (
+          <div className="dropdown-content">
+            <p
+              className="dropdown-item"
+              onClick={() => handleSelectOrder("asc")}
+            >
+              Ascending
+              {selectedOrder === "asc" && <span className="checkmark">✓</span>}
+            </p>
+
+            <p
+              className="dropdown-item"
+              onClick={() => handleSelectOrder("desc")}
+            >
+              Descending
+              {selectedOrder === "desc" && <span className="checkmark">✓</span>}
+            </p>
+          </div>
+        )}
+      </div>
+
+
+      <div className="dropdown-container">
+        <button className="dropdown" onClick={toggleDropdown2}>
+          Category
+        </button>
+        {dropdown2 && (
+          <div className="dropdown-content">
+            <p
+              className="dropdown-item"
+              onClick={() => handleSelectCategory("make")}
+            >
+              Make
+              {selectedCategory === "make" && <span className="checkmark">✓</span>}
+            </p>
+
+            <p
+              className="dropdown-item"
+              onClick={() => handleSelectCategory("model")}
+            >
+              Model
+              {selectedCategory === "model" && <span className="checkmark">✓</span>}
+            </p>
+
+            <p
+              className="dropdown-item"
+              onClick={() => handleSelectCategory("year")}
+            >
+              Year
+              {selectedCategory === "year" && <span className="checkmark">✓</span>}
+            </p>
+
+            <p
+              className="dropdown-item"
+              onClick={() => handleSelectCategory("price")}
+            >
+              Price
+              {selectedCategory === "price" && <span className="checkmark">✓</span>}
+            </p>
+
+            <p
+              className="dropdown-item"
+              onClick={() => handleSelectCategory("mileage")}
+            >
+              Mileage
+              {selectedCategory === "mileage" && <span className="checkmark">✓</span>}
+            </p>
+
+            <p
+              className="dropdown-item"
+              onClick={() => handleSelectCategory("condition")}
+            >
+              Condition
+              {selectedCategory === "condition" && <span className="checkmark">✓</span>}
+            </p>
+
+            <p
+              className="dropdown-item"
+              onClick={() => handleSelectCategory("fuel_type")}
+            >
+              Fuel Type
+              {selectedCategory === "fuel_type" && <span className="checkmark">✓</span>}
+            </p>
+
+            <p
+              className="dropdown-item"
+              onClick={() => handleSelectCategory("transmission")}
+            >
+              Transmission
+              {selectedCategory === "transmission" && <span className="checkmark">✓</span>}
+            </p>
+
+            <p
+              className="dropdown-item"
+              onClick={() => handleSelectCategory("color")}
+            >
+              Color
+              {selectedCategory === "color" && <span className="checkmark">✓</span>}
+            </p>
+
+
+          </div>
+        )}
+      </div>
+
+
+
+
+
       <div className="car-list">
         {cars.map((car) => (
           <div className="car-item" key={car.id} onClick={() => openModal(car)}>
