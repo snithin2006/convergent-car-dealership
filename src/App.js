@@ -22,8 +22,11 @@ const App = () => {
     fetchCars();
   }, []);
 
-  const openModal = (movie) => {
-    setSelectedCar(movie);
+  const openModal = async (car) => {
+    console.log(car.id);
+    const response = await axios.get(`https://dealership.naman.zip/car/${car.id}`);
+
+    setSelectedCar(response.data);
     setIsModalOpen(true);
   };
 
@@ -55,7 +58,14 @@ const App = () => {
         model={selectedCar?.model}
         year={selectedCar?.year}
         price={selectedCar?.price}
+        mileage={selectedCar?.mileage}
+        condition={selectedCar?.condition}
+        fuel_type={selectedCar?.fuel_type}
+        transmission={selectedCar?.transmission}
+        color={selectedCar?.color}
+        vin={selectedCar?.vin}
         image={selectedCar?.image}
+        description={selectedCar?.description}
       />
     </div>
   );
