@@ -1,128 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* App.css */
+:root {
+  --primary-color: #000000;
+  --secondary-color: #1a1a1a;
+  --accent-color: #c8a355;
+  --text-color: #333333;
+  --light-gray: #f5f5f5;
+  --transition: all 0.3s ease;
+}
+
+body {
+  background-color: var(--light-gray);
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-color);
+}
+
 .title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin: 40px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--accent-color);
   text-align: center;
-  margin: 20px 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dropdown-container {
-  margin-left: 5%;
-  margin-bottom: 1%;
+  margin: 0 50px;
   position: relative;
   display: inline-block;
 }
 
 .dropdown {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff; 
+  padding: 12px 24px;
+  font-size: 14px;
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: var(--transition);
 }
 
 .dropdown:hover {
-  background-color: #0056b3;
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
 .dropdown-content {
   position: absolute;
-  top: 40px;
+  top: 45px;
   left: 0;
+  min-width: 180px;
   background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  width: 120px;
-}
-
-.checkmark {
-  margin-left: auto;
-  font-size: 16px;
-  color: #28a745;
-  padding-right: 5px;
 }
 
 .dropdown-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  padding-left: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-size: 14px;
-  color: #333;
+  padding: 12px 20px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #f0f0f0;
+  color: var(--text-color);
   cursor: pointer;
 }
 
 .dropdown-item:hover {
-  background-color: #f0f0f0;
+  background-color: var(--light-gray);
+  color: var(--accent-color);
+}
+
+.checkmark {
+  color: var(--accent-color);
+  margin-left: 10px;
 }
 
 .compare-button {
-  margin-left: 5%;
-  margin-bottom: 1%;
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
+  margin: 0 50px;
+  padding: 12px 24px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .compare-button.inactive {
-  background-color: #d9534f;
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .compare-button.active {
-  background-color: #28a745;
-  transform: scale(1.05);
+  background-color: var(--accent-color);
+  color: white;
+  transform: translateY(-2px);
 }
 
 .compare-button.inactive:hover {
-  background-color: #c9302c;
+  background-color: var(--secondary-color);
 }
 
 .compare-button.active:hover {
-  background-color: #218838;
+  background-color: #b18d40;
 }
 
 .car-list {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 0.5fr);
-  justify-items: center;
-  row-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .car-item {
+  position: relative;
+  background-color: white;
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+  transition: var(--transition);
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  padding: 10px;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.car-item.compare {
-  background-color: green;
 }
 
 .car-item:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
+  transform: translateY(-10px);
+  background-color: #b18d40;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .car-item img {
-  width: auto;
-  height: 150px;
-  border-radius: 5px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
 }
 
+.car-item p {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin: 10px 0;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.car-item.compare {
+  background-color: var(--accent-color);
+}
+
+.car-item.compare p {
+  color: white;
+}

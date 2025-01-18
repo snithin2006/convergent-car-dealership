@@ -91,109 +91,111 @@ const App = () => {
     <div>
       <h1 className="title">Car Dealership</h1>
 
-      <div className="dropdown-container">
-        <button className="dropdown" onClick={toggleDropdown1}>
-          Order
-        </button>
-        {dropdown1 && (
-          <div className="dropdown-content">
-            <p
-              className="dropdown-item"
-              onClick={() => handleSelectOrder("asc")}
-            >
-              Ascending
-              {selectedOrder === "asc" && <span className="checkmark">✓</span>}
-            </p>
-            <p
-              className="dropdown-item"
-              onClick={() => handleSelectOrder("desc")}
-            >
-              Descending
-              {selectedOrder === "desc" && <span className="checkmark">✓</span>}
-            </p>
-          </div>
-        )}
-      </div>
+      <div className="buttons">
+        <div className="dropdown-container">
+          <button className="dropdown" onClick={toggleDropdown1}>
+            Order
+          </button>
+          {dropdown1 && (
+            <div className="dropdown-content">
+              <p
+                className="dropdown-item"
+                onClick={() => handleSelectOrder("asc")}
+              >
+                Ascending
+                {selectedOrder === "asc" && <span className="checkmark">✓</span>}
+              </p>
+              <p
+                className="dropdown-item"
+                onClick={() => handleSelectOrder("desc")}
+              >
+                Descending
+                {selectedOrder === "desc" && <span className="checkmark">✓</span>}
+              </p>
+            </div>
+          )}
+        </div>
 
-      <div className="dropdown-container">
-        <button className="dropdown" onClick={toggleDropdown2}>
-          Category
-        </button>
-        {dropdown2 && (
-          <div className="dropdown-content">
-            <p
-              className="dropdown-item"
-              onClick={() => handleSelectCategory("make")}
-            >
-              Make
-              {selectedCategory === "make" && <span className="checkmark">✓</span>}
-            </p>
-            <p
-              className="dropdown-item"
-              onClick={() => handleSelectCategory("model")}
-            >
-              Model
-              {selectedCategory === "model" && <span className="checkmark">✓</span>}
-            </p>
-            <p
-              className="dropdown-item"
-              onClick={() => handleSelectCategory("year")}
-            >
-              Year
-              {selectedCategory === "year" && <span className="checkmark">✓</span>}
-            </p>
-            <p
-              className="dropdown-item"
-              onClick={() => handleSelectCategory("price")}
-            >
-              Price
-              {selectedCategory === "price" && <span className="checkmark">✓</span>}
-            </p>
-            <p
-              className="dropdown-item"
-              onClick={() => handleSelectCategory("mileage")}
-            >
-              Mileage
-              {selectedCategory === "mileage" && <span className="checkmark">✓</span>}
-            </p>
-            <p
-              className="dropdown-item"
-              onClick={() => handleSelectCategory("condition")}
-            >
-              Condition
-              {selectedCategory === "condition" && <span className="checkmark">✓</span>}
-            </p>
-            <p
-              className="dropdown-item"
-              onClick={() => handleSelectCategory("fuel_type")}
-            >
-              Fuel Type
-              {selectedCategory === "fuel_type" && <span className="checkmark">✓</span>}
-            </p>
-            <p
-              className="dropdown-item"
-              onClick={() => handleSelectCategory("transmission")}
-            >
-              Transmission
-              {selectedCategory === "transmission" && <span className="checkmark">✓</span>}
-            </p>
-            <p
-              className="dropdown-item"
-              onClick={() => handleSelectCategory("color")}
-            >
-              Color
-              {selectedCategory === "color" && <span className="checkmark">✓</span>}
-            </p>
-          </div>
-        )}
-      </div>
+        <div className="dropdown-container">
+          <button className="dropdown" onClick={toggleDropdown2}>
+            Category
+          </button>
+          {dropdown2 && (
+            <div className="dropdown-content">
+              <p
+                className="dropdown-item"
+                onClick={() => handleSelectCategory("make")}
+              >
+                Make
+                {selectedCategory === "make" && <span className="checkmark">✓</span>}
+              </p>
+              <p
+                className="dropdown-item"
+                onClick={() => handleSelectCategory("model")}
+              >
+                Model
+                {selectedCategory === "model" && <span className="checkmark">✓</span>}
+              </p>
+              <p
+                className="dropdown-item"
+                onClick={() => handleSelectCategory("year")}
+              >
+                Year
+                {selectedCategory === "year" && <span className="checkmark">✓</span>}
+              </p>
+              <p
+                className="dropdown-item"
+                onClick={() => handleSelectCategory("price")}
+              >
+                Price
+                {selectedCategory === "price" && <span className="checkmark">✓</span>}
+              </p>
+              <p
+                className="dropdown-item"
+                onClick={() => handleSelectCategory("mileage")}
+              >
+                Mileage
+                {selectedCategory === "mileage" && <span className="checkmark">✓</span>}
+              </p>
+              <p
+                className="dropdown-item"
+                onClick={() => handleSelectCategory("condition")}
+              >
+                Condition
+                {selectedCategory === "condition" && <span className="checkmark">✓</span>}
+              </p>
+              <p
+                className="dropdown-item"
+                onClick={() => handleSelectCategory("fuel_type")}
+              >
+                Fuel Type
+                {selectedCategory === "fuel_type" && <span className="checkmark">✓</span>}
+              </p>
+              <p
+                className="dropdown-item"
+                onClick={() => handleSelectCategory("transmission")}
+              >
+                Transmission
+                {selectedCategory === "transmission" && <span className="checkmark">✓</span>}
+              </p>
+              <p
+                className="dropdown-item"
+                onClick={() => handleSelectCategory("color")}
+              >
+                Color
+                {selectedCategory === "color" && <span className="checkmark">✓</span>}
+              </p>
+            </div>
+          )}
+        </div>
 
-      <button
-        className={`compare-button ${compare ? 'active' : 'inactive'}`}
-        onClick={toggleCompare}
-      >
-        Compare
-      </button>
+        <button
+          className={`compare-button ${compare ? 'active' : 'inactive'}`}
+          onClick={toggleCompare}
+        >
+          Compare
+        </button>
+      </div>
 
       <div className="car-list">
         {cars.map((car) => (

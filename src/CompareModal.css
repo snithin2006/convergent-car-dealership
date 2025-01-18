@@ -1,89 +1,52 @@
+/* CompareModal.css */
+.main {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
 .card {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
+    background-color: white;
+    padding: 40px;
     width: 500px;
     max-width: 90%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transform: scale(0.9);
-    transition: transform 0.2s ease-in-out;
-    max-height: 80vh; /* Limit height to 80% of the viewport */
-    overflow-y: auto;
-    margin: 10px; /* Space between cards */
+    margin: 10px;
     flex-shrink: 0;
 }
 
-.image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .car-list {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        padding: 15px;
+        margin: 20px auto;
+    }
 
-.image img {
-    width: 50%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-}
+    .title {
+        font-size: 2rem;
+        margin: 20px 0;
+    }
 
-.content {
-    text-align: left;
-}
+    .dropdown-container {
+        margin: 5px;
+    }
 
-.car-title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-}
+    .compare-button {
+        margin: 5px;
+    }
 
-.details {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
+    .card {
+        padding: 20px;
+    }
 
-.details .left, .details .right {
-    width: 48%;
-}
+    .image img {
+        width: 90%;
+    }
 
-.details p {
-    font-size: 1rem;
-    margin: 10px 0;
-    color: #555;
-}
+    .details {
+        flex-direction: column;
+    }
 
-.details span {
-    font-weight: bold;
-    color: #333;
-}
-
-.description {
-    margin-top: 20px;
-}
-
-.description h3 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.description p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.5;
-}
-
-.exit {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 1.2rem;
-    cursor: pointer;
+    .details .left,
+    .details .right {
+        width: 100%;
+    }
 }
