@@ -61,8 +61,36 @@
   background-color: #f0f0f0;
 }
 
+.compare-button {
+  margin-left: 5%;
+  margin-bottom: 1%;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.compare-button.inactive {
+  background-color: #d9534f;
+}
 
+.compare-button.active {
+  background-color: #28a745;
+  transform: scale(1.05);
+}
+
+.compare-button.inactive:hover {
+  background-color: #c9302c;
+}
+
+.compare-button.active:hover {
+  background-color: #218838;
+}
 
 .car-list {
   display: grid;
@@ -83,6 +111,10 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.car-item.compare {
+  background-color: green;
+}
+
 .car-item:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
@@ -93,3 +125,4 @@
   height: 150px;
   border-radius: 5px;
 }
+

@@ -1,0 +1,89 @@
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.2s ease-in-out;
+    max-height: 80vh; /* Limit height to 80% of the viewport */
+    overflow-y: auto;
+    margin: 10px; /* Space between cards */
+    flex-shrink: 0;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.image img {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.content {
+    text-align: left;
+}
+
+.car-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.details .left, .details .right {
+    width: 48%;
+}
+
+.details p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #555;
+}
+
+.details span {
+    font-weight: bold;
+    color: #333;
+}
+
+.description {
+    margin-top: 20px;
+}
+
+.description h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.exit {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
